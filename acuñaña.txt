@@ -1,0 +1,233 @@
+-- C O M A N D O S 	A R T I S A N --
+php artisan make:migration create_entidad_table
+php artisan make:model Entidad
+php artisan make:controller EntidadController
+
+
+- - Categorias - -
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class CategoriesTableSeeder extends Seeder
+{
+    public function run()
+    {
+        $categories = [
+            ['name' => 'Electrónica', 'code' => 'ELE001', 'description' => 'Productos electrónicos'],
+            ['name' => 'Ropa', 'code' => 'ROP002', 'description' => 'Ropa de moda'],
+            ['name' => 'Hogar', 'code' => 'HOG003', 'description' => 'Artículos para el hogar'],
+            ['name' => 'Deportes', 'code' => 'DEP004', 'description' => 'Equipamiento deportivo'],
+            ['name' => 'Libros', 'code' => 'LIB005', 'description' => 'Libros de diferentes géneros'],
+            ['name' => 'Juguetes', 'code' => 'JUG006', 'description' => 'Juguetes para todas las edades'],
+            ['name' => 'Música', 'code' => 'MUS007', 'description' => 'CDs y vinilos de música'],
+            ['name' => 'Salud y Belleza', 'code' => 'SAL008', 'description' => 'Productos de cuidado personal'],
+            ['name' => 'Automóviles', 'code' => 'AUT009', 'description' => 'Accesorios para automóviles'],
+            ['name' => 'Alimentación', 'code' => 'ALI010', 'description' => 'Productos alimenticios'],
+            ['name' => 'Videojuegos', 'code' => 'VIE011', 'description' => 'Videojuegos, retro o de los de ahora'],
+            ['name' => 'Tecnología', 'code' => 'TEC012', 'description' => 'Últimas novedades tecnológicas'],
+            ['name' => 'Viajes', 'code' => 'VIA013', 'description' => 'Paquetes y destinos de viaje'],
+            ['name' => 'Arte y Cultura', 'code' => 'ART014', 'description' => 'Obras de arte y eventos culturales'],
+            ['name' => 'Bricolaje', 'code' => 'BRI015', 'description' => 'Herramientas y materiales para bricolaje'],
+            ['name' => 'Mascotas', 'code' => 'MAS016', 'description' => 'Productos para mascotas'],
+            ['name' => 'Educación', 'code' => 'EDU017', 'description' => 'Material educativo y cursos'],
+            ['name' => 'Fitness', 'code' => 'FIT018', 'description' => 'Equipamiento y accesorios de fitness'],
+            ['name' => 'Cine y TV', 'code' => 'CIN019', 'description' => 'Películas y series de televisión'],
+            ['name' => 'Instrumentos Musicales', 'code' => 'INS020', 'description' => 'Instrumentos para músicos'],
+        ];
+
+        DB::table('categories')->insert($categories);
+    }
+}
+
+
+-- Publicaciones - -
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class PublicationsTableSeeder extends Seeder
+{
+    public function run()
+    {
+        $publications = [
+            ['category_id' => 1, 'title' => 'Votación: Mejor Producto Electrónico', 'description' => '¿Cuál crees que es el mejor producto electrónico en el mercado actualmente? ¡Vota y comparte tu opinión!', 'image' => 'imagen1.jpg'],
+            ['category_id' => 2, 'title' => 'Competencia de Moda: Primavera/Verano', 'description' => 'Descubre las tendencias de moda de esta temporada y elige tu favorita. ¡Participa en la competición de moda!', 'image' => 'imagen2.jpg'],
+            ['category_id' => 3, 'title' => 'Batalla de Hogar: Productos Esenciales', 'description' => '¿Cuál consideras que es el producto esencial para el hogar? Vota por tus favoritos y haz que tu elección cuente.', 'image' => 'imagen3.jpg'],
+            ['category_id' => 4, 'title' => 'Desafío Deportivo: Equipamiento Destacado', 'description' => 'Vota por el equipamiento deportivo que consideras esencial para tus actividades físicas. ¡Elige al campeón!', 'image' => 'imagen4.jpg'],
+            ['category_id' => 5, 'title' => 'Libro del Mes: Aventuras Épicas', 'description' => 'Participa en la selección del libro del mes. ¿Cuál crees que debería ser la próxima aventura épica para leer? ¡Vota ahora!', 'image' => 'imagen5.jpg'],
+            ['category_id' => 6, 'title' => 'Juguetes Educativos: Elige al Mejor', 'description' => 'Descubre los juguetes educativos más populares. ¡Vota por el que consideres que ofrece la mejor experiencia de aprendizaje!', 'image' => 'imagen6.jpg'],
+            ['category_id' => 7, 'title' => 'Un clasico vuelve a la escena. Cancion Animal', 'description' => '¿Atrapado en 1990? Participa en esta votacion y decide que cancion del album merece la gloria.', 'image' => 'imagen7.jpg'],
+            ['category_id' => 8, 'title' => 'Reto de Belleza: Productos Destacados', 'description' => 'Descubre los productos de belleza más destacados. Vota por tus favoritos y comparte tus secretos de belleza.', 'image' => 'imagen8.jpg'],
+            ['category_id' => 9, 'title' => 'Accesorios para Automóviles: Batalla en la Carretera', 'description' => 'Vota por los accesorios que crees que son esenciales para mejorar tu experiencia de conducción. ¡Elige al campeón!', 'image' => 'imagen9.jpg'],
+            ['category_id' => 10, 'title' => 'Gastronomía Mundial: Delicias Culinarias', 'description' => 'Explora las delicias culinarias de diferentes partes del mundo. Vota por tus favoritas y comparte tus experiencias gastronómicas.', 'image' => 'imagen10.jpg'],
+            ['category_id' => 11, 'title' => 'Los mejores ente los mejores: ¿Cual es el mejor "juego del año" de todos?', 'description' => 'Hay videojuegos que se llevan el premio al "juego del año" todos los años, ¿pero quién será el juego de los juegos del año?', 'image' => 'imagen11.jpg'],
+            ['category_id' => 12, 'title' => 'Innovación Tecnológica: Últimas Novedades', 'description' => 'Vota por las últimas innovaciones tecnológicas que crees que cambiarán el juego. ¡Elige al pionero de la tecnología!', 'image' => 'imagen12.jpg'],
+            ['category_id' => 13, 'title' => 'Destinos de Viaje: ¿Cuál es tu Elección?', 'description' => 'Planifica tus vacaciones votando por tu destino favorito. ¡Descubre los destinos más populares y haz tu elección!', 'image' => 'imagen13.jpg'],
+            ['category_id' => 14, 'title' => 'Eventos Culturales: ¿Qué Evento te Inspira?', 'description' => 'Participa en la elección del evento cultural del mes. ¡Vota por el evento que más te inspire!', 'image' => 'imagen14.jpg'],
+            ['category_id' => 15, 'title' => 'Proyecto Bricolaje: Herramientas Destacadas', 'description' => 'Vota por las herramientas de bricolaje que consideras más útiles. ¡Elige las herramientas destacadas del proyecto bricolaje!', 'image' => 'imagen15.jpg'],
+            ['category_id' => 16, 'title' => 'Bienestar Mascotas: Productos Recomendados', 'description' => 'Participa en la selección de los mejores productos para el bienestar de las mascotas. ¡Vota por los productos recomendados!', 'image' => 'imagen16.jpg'],
+            ['category_id' => 17, 'title' => 'Educación en Casa: Materiales Destacados', 'description' => 'Vota por los materiales educativos que consideras más destacados. ¡Descubre las herramientas para la educación en casa!', 'image' => 'imagen17.jpg'],
+            ['category_id' => 18, 'title' => 'Desafío Fitness: Equipamiento Ideal', 'description' => 'Elige el equipamiento de fitness ideal votando por tus favoritos. ¡Participa en el desafío fitness y elige al ganador!', 'image' => 'imagen18.jpg'],
+            ['category_id' => 19, 'title' => 'Maratón Cinematográfico: ¿Cuál es tu Elección?', 'description' => 'Vota por las películas y series que deberían formar parte de tu maratón cinematográfico. ¡Elige tus favoritas y disfruta del espectáculo!', 'image' => 'imagen19.jpg'],
+            ['category_id' => 20, 'title' => 'Instrumentos Musicales: Elige al Maestro', 'description' => '¿Cuál es el instrumento musical que crees que debería ser considerado el maestro? ¡Vota por tu favorito y descubre la excelencia musical!', 'image' => 'imagen20.jpg'],
+        ];
+
+        DB::table('publication')->insert($publications);
+    }
+}
+
+- - E l e m e n t o s  1 - -
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class ElementsTableSeeder extends Seeder
+{
+    public function run()
+    {
+        $elements = [
+            ['category_id' => 1, 'publication_id' => 1, 'name' => 'Smartphone X', 'description' => 'El último modelo de smartphone con tecnología avanzada', 'image' => 'elemento1.jpg'],
+            ['category_id' => 1, 'publication_id' => 1, 'name' => 'Tablet Pro', 'description' => 'Una potente tablet con pantalla de alta resolución', 'image' => 'elemento2.jpg'],
+            ['category_id' => 1, 'publication_id' => 1, 'name' => 'Cámara HD', 'description' => 'Una cámara de alta definición para capturar momentos inolvidables', 'image' => 'elemento3.jpg'],
+
+            ['category_id' => 2, 'publication_id' => 2, 'name' => 'Vestido Elegante', 'description' => 'Un vestido elegante y moderno para la temporada', 'image' => 'elemento4.jpg'],
+            ['category_id' => 2, 'publication_id' => 2, 'name' => 'Traje de Baño Trendy', 'description' => 'Un traje de baño de última moda para tus días de sol', 'image' => 'elemento5.jpg'],
+            ['category_id' => 2, 'publication_id' => 2, 'name' => 'Zapatos de Moda', 'description' => 'Zapatos de moda para complementar tu estilo único', 'image' => 'elemento6.jpg'],
+
+            ['category_id' => 3, 'publication_id' => 3, 'name' => 'Robot Asistente', 'description' => 'Un robot asistente para simplificar las tareas del hogar', 'image' => 'elemento7.jpg'],
+            ['category_id' => 3, 'publication_id' => 3, 'name' => 'Aspiradora Inteligente', 'description' => 'Una aspiradora inteligente con tecnología de última generación', 'image' => 'elemento8.jpg'],
+            ['category_id' => 3, 'publication_id' => 3, 'name' => 'Sistema de Seguridad', 'description' => 'Un sistema de seguridad avanzado para proteger tu hogar', 'image' => 'elemento9.jpg'],
+
+            ['category_id' => 4, 'publication_id' => 4, 'name' => 'Balón de Fútbol', 'description' => 'Balón de fútbol profesional para tus partidos favoritos', 'image' => 'elemento10.jpg'],
+            ['category_id' => 4, 'publication_id' => 4, 'name' => 'Raqueta de Tenis', 'description' => 'Raqueta de tenis de alta calidad para tus partidos en la cancha', 'image' => 'elemento11.jpg'],
+            ['category_id' => 4, 'publication_id' => 4, 'name' => 'Bicicleta de Montaña', 'description' => 'Bicicleta diseñada para aventuras en terrenos montañosos', 'image' => 'elemento12.jpg'],
+
+            ['category_id' => 5, 'publication_id' => 5, 'name' => 'Novela de Ciencia Ficción', 'description' => 'Una emocionante novela de ciencia ficción llena de intriga', 'image' => 'elemento13.jpg'],
+            ['category_id' => 5, 'publication_id' => 5, 'name' => 'Libro de Misterio', 'description' => 'Un libro de misterio que te mantendrá en vilo hasta la última página', 'image' => 'elemento14.jpg'],
+            ['category_id' => 5, 'publication_id' => 5, 'name' => 'Biografía Inspiradora', 'description' => 'La biografía de una figura inspiradora que cambiará tu perspectiva', 'image' => 'elemento15.jpg'],
+
+            ['category_id' => 6, 'publication_id' => 6, 'name' => 'Juego Educativo para Niños', 'description' => 'Un juego educativo diseñado para el aprendizaje infantil', 'image' => 'elemento16.jpg'],
+            ['category_id' => 6, 'publication_id' => 6, 'name' => 'Muñeca Interactiva', 'description' => 'Muñeca interactiva que ofrece experiencias de juego únicas', 'image' => 'elemento17.jpg'],
+            ['category_id' => 6, 'publication_id' => 6, 'name' => 'Bloques de Construcción Creativos', 'description' => 'Bloques que estimulan la creatividad y el pensamiento lógico en niños', 'image' => 'elemento18.jpg'],
+
+            ['category_id' => 7, 'publication_id' => 7, 'name' => 'Cancion Animal', 'description' => '"Hipnotismo de un flagelo..." La melodia que le da nombre al album busca demostrar su valía', 'image' => 'elemento19.jpg'],
+            ['category_id' => 7, 'publication_id' => 7, 'name' => 'De musica ligera', 'description' => '"De aquel amor..." De musica ligera es el indiscutible track de Soda Stereo como banda, ¿pero logrará hacerle frente a sus compañeras de album en cuanto a calidad?', 'image' => 'elemento20.jpg'],
+	    ['category_id' => 7, 'publication_id' => 7, 'name' => 'Un millon de años luz', 'description' => '"No vuelvas sin razon..." Desde un millon de años luz llega esta canción para dar catedra de como hacer una composición con poder absoluto', 'image' => 'elemento21.jpg'],
+        ];
+
+        DB::table('element')->insert($elements);
+    }
+}
+
+- - E l e m e n t o s  2 - -
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class AdditionalElementsTableSeeder extends Seeder
+{
+    public function run()
+    {
+        // Continuando desde el último registro
+        $additionalElements = [
+            ['category_id' => 8, 'publication_id' => 8, 'name' => 'Espejo Iluminado', 'description' => 'Espejo con iluminación LED para un maquillaje perfecto', 'image' => 'elemento22.jpg'],
+            ['category_id' => 8, 'publication_id' => 8, 'name' => 'Secador de Pelo Profesional', 'description' => 'Secador de pelo de alto rendimiento para un estilo impecable', 'image' => 'elemento23.jpg'],
+            ['category_id' => 8, 'publication_id' => 8, 'name' => 'Paleta de Sombras de Ojos', 'description' => 'Paleta de sombras de ojos con una gama de colores impresionante', 'image' => 'elemento24.jpg'],
+
+            ['category_id' => 9, 'publication_id' => 9, 'name' => 'Soporte para Teléfono en Automóvil', 'description' => 'Mantén tu teléfono seguro mientras conduces con este soporte', 'image' => 'elemento25.jpg'],
+            ['category_id' => 9, 'publication_id' => 9, 'name' => 'Cargador Inalámbrico para Automóvil', 'description' => 'Carga tu dispositivo de forma inalámbrica mientras conduces', 'image' => 'elemento26.jpg'],
+            ['category_id' => 9, 'publication_id' => 9, 'name' => 'Luces LED para Automóvil', 'description' => 'Personaliza la iluminación de tu automóvil con estas luces LED', 'image' => 'elemento27.jpg'],
+
+            ['category_id' => 10, 'publication_id' => 10, 'name' => 'Chocolate Exótico', 'description' => 'Descubre sabores exóticos con esta selección de chocolates', 'image' => 'elemento28.jpg'],
+            ['category_id' => 10, 'publication_id' => 10, 'name' => 'Café de Origen Único', 'description' => 'Disfruta de la experiencia única de un café de origen único', 'image' => 'elemento29.jpg'],
+            ['category_id' => 10, 'publication_id' => 10, 'name' => 'Condimentos Internacionales', 'description' => 'Amplía tu cocina con estos condimentos de todo el mundo', 'image' => 'elemento30.jpg'],
+
+            ['category_id' => 11, 'publication_id' => 11, 'name' => 'GTA San Andreas', 'description' => 'Carl Jonhson y el Groove Street buscan recuperar su barrio y demostrar su poder entre los mejores titulos de la historia', 'image' => 'elemento31.jpg'],
+            ['category_id' => 11, 'publication_id' => 11, 'name' => 'The Legend of Zelda: Ocarina of Time', 'description' => 'Los graficos lowpoly no deben engañarte. TLOZ: OOT posee un mundo completamente vivo donde tú eres el heroe', 'image' => 'elemento32.jpg'],
+            ['category_id' => 11, 'publication_id' => 11, 'name' => 'Minecraft', 'description' => 'Minimalista pero complejo, una conbinación unica que solo el juego de cubos puede presumir. Minecraft construye su puente hacia la victoria', 'image' => 'elemento33.jpg'],
+
+            ['category_id' => 12, 'publication_id' => 12, 'name' => 'Auriculares Inalámbricos de Última Generación', 'description' => 'Disfruta de la música sin restricciones con estos auriculares', 'image' => 'elemento34.jpg'],
+            ['category_id' => 12, 'publication_id' => 12, 'name' => 'Pantalla Curva 4K', 'description' => 'Sumérgete en la experiencia visual con esta pantalla curva', 'image' => 'elemento35.jpg'],
+            ['category_id' => 12, 'publication_id' => 12, 'name' => 'Cámara de Seguridad Inteligente', 'description' => 'Mantén tu hogar seguro con esta cámara de seguridad inteligente', 'image' => 'elemento36.jpg'],
+
+            ['category_id' => 13, 'publication_id' => 13, 'name' => 'Paquete Todo Incluido a Destino Exótico', 'description' => 'Descubre un destino exótico con este paquete todo incluido', 'image' => 'elemento37.jpg'],
+            ['category_id' => 13, 'publication_id' => 13, 'name' => 'Tour Cultural por Ciudades Históricas', 'description' => 'Explora ciudades históricas con este tour cultural', 'image' => 'elemento38.jpg'],
+            ['category_id' => 13, 'publication_id' => 13, 'name' => 'Escapada de Fin de Semana a la Playa', 'description' => 'Relájate en la playa con esta escapada de fin de semana', 'image' => 'elemento39.jpg'],
+
+            ['category_id' => 14, 'publication_id' => 14, 'name' => 'Entradas VIP a Concierto Exclusivo', 'description' => 'Asiste a un concierto exclusivo con estas entradas VIP', 'image' => 'elemento40.jpg'],
+            ['category_id' => 14, 'publication_id' => 14, 'name' => 'Pases para Festival de Cine Internacional', 'description' => 'Sumérgete en el mundo del cine con estos pases exclusivos', 'image' => 'elemento41.jpg'],
+['category_id' => 14, 'publication_id' => 14, 'name' => 'Pases para Festival de Cine Internacional', 'description' => 'Sumérgete en el mundo del cine con estos pases exclusivos', 'image' => 'elemento42.jpg'],
+        ];
+
+        DB::table('element')->insert($additionalElements);
+    }
+}
+
+
+
+- - E l e m e n t o s  3 - -
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class FinalElementsTableSeeder extends Seeder
+{
+    public function run()
+    {
+        $finalElements = [
+            ['category_id' => 15, 'publication_id' => 15, 'name' => 'Kit de Herramientas para Proyectos de Bricolaje', 'description' => 'Completo kit de herramientas para proyectos de bricolaje en casa', 'image' => 'elemento43.jpg'],
+            ['category_id' => 15, 'publication_id' => 15, 'name' => 'Sierra Circular de Alta Potencia', 'description' => 'Sierra circular potente para cortes precisos en tus proyectos', 'image' => 'elemento44.jpg'],
+            ['category_id' => 15, 'publication_id' => 15, 'name' => 'Taladro Inalámbrico de Impacto', 'description' => 'Taladro inalámbrico con función de impacto para perforaciones eficientes', 'image' => 'elemento45.jpg'],
+
+            ['category_id' => 16, 'publication_id' => 16, 'name' => 'Juguetes Interactivos para Gatos y Perros', 'description' => 'Divertidos juguetes interactivos para entretener a tus mascotas', 'image' => 'elemento46.jpg'],
+            ['category_id' => 16, 'publication_id' => 16, 'name' => 'Cama Suave y Confortable para Mascotas', 'description' => 'Cama acogedora para que tus mascotas descansen cómodamente', 'image' => 'elemento47.jpg'],
+            ['category_id' => 16, 'publication_id' => 16, 'name' => 'Collar Inteligente para Mascotas', 'description' => 'Collar inteligente con seguimiento de actividad para tus mascotas', 'image' => 'elemento48.jpg'],
+
+            ['category_id' => 17, 'publication_id' => 17, 'name' => 'Libros Educativos para Todas las Edades', 'description' => 'Colección de libros educativos para el aprendizaje continuo', 'image' => 'elemento49.jpg'],
+            ['category_id' => 17, 'publication_id' => 17, 'name' => 'Curso en Línea sobre Desarrollo Personal', 'description' => 'Participa en un curso en línea para tu desarrollo personal', 'image' => 'elemento50.jpg'],
+            ['category_id' => 17, 'publication_id' => 17, 'name' => 'Juego de Matemáticas para Niños', 'description' => 'Divertido juego de matemáticas para fomentar el aprendizaje', 'image' => 'elemento51.jpg'],
+
+            ['category_id' => 18, 'publication_id' => 18, 'name' => 'Equipo de Entrenamiento en Casa', 'description' => 'Equipo esencial para entrenar en casa y mantenerse en forma', 'image' => 'elemento52.jpg'],
+            ['category_id' => 18, 'publication_id' => 18, 'name' => 'Ropa Deportiva de Alto Rendimiento', 'description' => 'Ropa deportiva diseñada para proporcionar comodidad y rendimiento', 'image' => 'elemento53.jpg'],
+            ['category_id' => 18, 'publication_id' => 18, 'name' => 'Monitor de Actividad Física', 'description' => 'Monitor de actividad para realizar un seguimiento de tu progreso fitness', 'image' => 'elemento54.jpg'],
+
+            ['category_id' => 19, 'publication_id' => 19, 'name' => 'Películas Clásicas en Blu-ray', 'description' => 'Colección de películas clásicas remasterizadas en alta definición', 'image' => 'elemento55.jpg'],
+            ['category_id' => 19, 'publication_id' => 19, 'name' => 'Serie de TV de Suspenso', 'description' => 'Serie de televisión llena de suspenso y giros inesperados', 'image' => 'elemento56.jpg'],
+            ['category_id' => 19, 'publication_id' => 19, 'name' => 'Proyector de Cine en Casa', 'description' => 'Proyector de alta calidad para disfrutar de tus películas en casa', 'image' => 'elemento57.jpg'],
+
+            ['category_id' => 20, 'publication_id' => 20, 'name' => 'Guitarra Acústica de Estudio', 'description' => 'Guitarra acústica de alta calidad para músicos en desarrollo', 'image' => 'elemento58.jpg'],
+            ['category_id' => 20, 'publication_id' => 20, 'name' => 'Teclado Digital Profesional', 'description' => 'Teclado digital con funciones profesionales para músicos', 'image' => 'elemento59.jpg'],
+            ['category_id' => 20, 'publication_id' => 20, 'name' => 'Micrófono de Estudio con Soporte', 'description' => 'Micrófono de estudio para grabaciones de alta calidad', 'image' => 'elemento60.jpg'],
+        ];
+
+        DB::table('element')->insert($finalElements);
+    }
+}
+
+
+
+   public function up(): void
+    {
+        Schema::create('element', function (Blueprint $table) {
+            $table->id();
+            $table->integrer('category_id');
+            $table->integrer('publication_id');
+            $table->string('name');
+            $table->string('description');
+            $table->string('image');
+            $table->timestamps();
+        });
+    }
+
+
+    public function up(): void
+    {
+        Schema::create('publication', function (Blueprint $table) {
+            $table->id();
+            $table->integrer('category_id');
+            $table->string('title');
+            $table->string('description');
+            $table->string('image');
+            $table->timestamps();
+        });
+    }
+
+
+
+
